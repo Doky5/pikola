@@ -3,13 +3,13 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
+<header transition:animate="none">
   <nav>
     <h2><a href="/">{SITE_TITLE}</a></h2>
     <div class="internal-links">
       <HeaderLink href="/">Domů</HeaderLink>
       <HeaderLink href="/pravidla">Pravidla</HeaderLink>
-      <HeaderLink href="/blog">Videa</HeaderLink>
+      <HeaderLink href="/blog">Žebříčky</HeaderLink>
     </div>
     <div class="social-links">
       <a href="https://m.webtoo.ls/@astro" target="_blank">
