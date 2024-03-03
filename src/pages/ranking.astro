@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ranking from '../content/zebricky/players.json';
+
+const sorted = ranking.sort(function (obj1, obj2) {
+  return obj2.points - obj1.points;
+});
+---
+
+<Layout title="Žebříčky">
+  <ol class="ranking">
+    {
+      sorted.map((i) => (
+        <li>
+          <img
+            width={50}
+            height={50}
+            src={`/src/assets/${i.picture}`}
+            alt=""
+            transition:name="player"
+          />
+          <div>
+            <div>{i.name}</div>
+            <div>{i.points}</div>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</Layout>
+<style>
+  li {
+    background: rgb(var(--gray-light));
+    box-shadow: 0 0 10px gray;
+    border-radius: 5px;
+    padding: 20px;
+    & > div {
+      display: flex;
+      width: 90%;
+      margin-left: 20px;
+      float: left;
+      justify-content: space-between;
+    }
+  }
+  section {
+    display: grid;
+    gap: 1rem;
+  }
+  img {
+    float: left;
+  }
+</style>
